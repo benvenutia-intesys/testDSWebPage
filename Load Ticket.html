@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    	<title>Load Ticket</title>
+		<style>
+			body{ 
+				color: #4b4b4b;
+				margin: 0;
+			}
+		
+			.addVacationButton{
+				cursor: pointer;    
+				font-size: 30px;
+				padding: 12px 35px;
+				background-color: white;
+				color: #ff8034;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				margin-top: 20px;
+				font-weight: bold;
+				border: solid #ff8034 6px;
+				-webkit-tap-highlight-color: #ff8034;
+			}		
+			.footer {
+			height: 150px;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			}
+
+		</style>
+	</head>
+	<body>
+		<script>
+
+			document.addEventListener("DOMContentLoaded", function () {
+				var metaTag = document.querySelector('meta[name="apple-itunes-app"]');
+				if (metaTag) {
+					var currentURL = window.location.href; // Get the current page URL
+					metaTag.setAttribute("content", "app-id=com.dolomitisuperski.skiapp, app-argument=" + encodeURIComponent(currentURL));
+				}
+			});
+			
+			function openAndroidApp() {			
+				var currentUrl = new URL(window.location.href);
+				var barcode = currentUrl.searchParams.get("ee");
+				barcode = barcode.replace("1,", "").replace("1%2C", "");
+				console.log("barcode: ", barcode);
+				const url = "https://bleapp.page.link/?link=https%3A%2F%2Fble.axess.solutions%2Floadticket%2F?ee=1%2C"+barcode+"&apn=com.axess.android.ble&isi=1605953017&ibi=com.axess.AxessBLE-MobileAccess-App";
+				window.location.href = url;
+			}
+		</script>
+
+		<div style="width: 100%;">
+			<div style="margin: auto; width: 80%;">
+				<div style="height: 50px"></div>
+				<h1> Not automatically redirected? </h1>
+				<p style="font-size: 26px">Tap OPEN APPLICATION to redirect.</p>
+				<button id="btnTest" style="width: 100%; height: 200px; margin-top: 50px;" class="addVacationButton" type="button" onclick="openAndroidApp()"> OPEN APPLICATION </button>
+				<div style="height: 10em"></div>
+			</div>
+			
+			<div style="background: #F2F2F7; padding: 5em 0 10em 0">
+				<div style="margin: auto; width: 80%;">
+					<h1> Still not working? </h1>
+					<p style="font-size: 26px"> Download My Dolomiti Winter app </p>   
+					<a href="market://details?id=com.dolomitisuperski.skiapp" target="_blank">			
+						<div style="width: 70%; margin: auto">
+							<img src="./Load Ticket_files/en-play-badge.png" width="100%">
+						</div>   
+					</a>
+					<a href="itms-apps://itunes.apple.com/app/id1483954376" target="_blank">
+						<div style="width: 70%; margin: auto">
+							<div style="margin: 0px 30px"> 
+								<img src="./Load Ticket_files/apple_store.svg" width="100%">
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<img style="margin: auto; display: block" src="./Load Ticket_files/axess_logo.png" width="500">
+		</div>
+	</body>
+</html>
