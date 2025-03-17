@@ -3,16 +3,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     	<title>Load Ticket</title>
 		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+			}
+
 			body { 
 				color: #4b4b4b;
 				margin: 0;
-			}
-
-			html, body {
-			    height: 100%;
-    			margin: 0;
-    			display: flex;
-    			flex-direction: column;
 			}
 		
 			.addVacationButton {
@@ -28,52 +28,52 @@
 				font-weight: bold;
 				border: solid #ff8034 6px;
 				-webkit-tap-highlight-color: #ff8034;
-			}		
+			}
+
+			.container {
+				flex-grow: 1; /* Ensures content takes full height */
+			}
+
 			.footer {
 				height: 150px;
 				background: #F2F2F7;
 				margin-top: auto; /* Pushes footer to the bottom */
 				width: 100%;
 			}
-
 		</style>
 	</head>
 	<body>
 		<script>
-
 			function openApp() {			
-				// var currentUrl = new URL(window.location.href);
-				var currentUrl = "https://smartpass.dolomitisuperski.com/loadticket/?smartPassCode=x4l1KFOxggJgyYN69M3IOQtEJRLFfyxwaUFfW3SSLcnN7lX5WRnXRVyjb+oxo4sXDj+g2f2Cfc18gu+c/241qL931h+jGeZkyTJXDHmcQiw7JFcgXXWGvBYxjocXihSA8gFNvKNPdrN3dqGfU8GlTk9329LwU7GgbPxdhnytv62snz2bhPVBf7MbVQXt/8zg";
-				window.location.href = currentUrl;
+				// var appUrl = new URL(window.location.href);
+				var appUrl = "https://bleapp.page.link/?link=https%3A%2F%2Fsmartpass.dolomitisuperski.com%2Floadticket%2F?ee=1%2CBARCODEFAKE&apn=com.dolomitisuperski.skiapp&isi=1605953017&ibi=com.dolomitisuperski.skiapp"
+
+				// Attempt to open app link
+				window.open(appUrl, "_self");
+
+				// Fallback if app link fails
+				setTimeout(function() {
+					window.location.href = "intent://loadticket/?smartPassCode=yourcode#Intent;scheme=https;package=com.dolomitisuperski.skiapp;end;";
+				}, 1000);
 			}
 		</script>
 
-		<div style="width: 100%;">
-			<div style="margin: auto; width: 80%;">
-				<div style="height: 50px"></div>
+		<div class="container">
+			<div style="width: 100%; margin: auto; text-align: center;">
 				<h1> Not automatically redirected? </h1>
 				<p style="font-size: 26px">Tap OPEN APPLICATION to redirect.</p>
-				<button id="btnTest" style="width: 100%; height: 200px; margin-top: 50px;" class="addVacationButton" type="button" onclick="openApp()"> OPEN APPLICATION </button>
-				<div style="height: 10em"></div>
+				<button class="addVacationButton" style="width: 70%; height: 100px;" onclick="openApp()"> OPEN APPLICATION </button>
 			</div>
 			
-			<div style="background: #F2F2F7; padding: 5em 0 10em 0">
-				<div style="margin: auto; width: 80%;">
-					<h1> Still not working? </h1>
-					<p style="font-size: 26px"> Download My Dolomiti Winter app </p>   
-					<a href="market://details?id=com.dolomitisuperski.skiapp" target="_blank">			
-						<div style="width: 70%; margin: auto">
-							<img src="./sources/en-play-badge.png" width="100%">
-						</div>   
-					</a>
-					<a href="itms-apps://itunes.apple.com/app/id1483954376" target="_blank">
-						<div style="width: 70%; margin: auto">
-							<div style="margin: 0px 30px"> 
-								<img src="./sources/apple_store.svg" width="100%">
-							</div>
-						</div>
-					</a>
-				</div>
+			<div style="background: #F2F2F7; padding: 5em 0 10em 0; text-align: center;">
+				<h1> Still not working? </h1>
+				<p style="font-size: 26px"> Download My Dolomiti Winter app </p>   
+				<a href="market://details?id=com.dolomitisuperski.skiapp" target="_blank">			
+					<img src="./sources/en-play-badge.png" width="50%">
+				</a>
+				<a href="itms-apps://itunes.apple.com/app/id1483954376" target="_blank">
+					<img src="./sources/apple_store.svg" width="50%">
+				</a>
 			</div>
 		</div>
 		
