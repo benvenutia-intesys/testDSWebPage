@@ -39,6 +39,7 @@
 				var metaTag = document.querySelector('meta[name="apple-itunes-app"]');
 				if (metaTag) {
 					var currentURL = window.location.href; // Get the current page URL
+					console.log("meta current url: ", currentURL)
 					metaTag.setAttribute("content", "app-id=com.dolomitisuperski.skiapp, app-argument=" + encodeURIComponent(currentURL));
 				}
 			});
