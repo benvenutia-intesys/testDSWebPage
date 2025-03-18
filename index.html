@@ -44,9 +44,8 @@
 	</head>
 	<body>
 		<script>
-				// var appUrl = new URL(window.location.href);
 			function openApp1() {
-				var appUrl = "https://smartpass.dolomitisuperski.com/loadticket/?ee=CBARCODEFAKE";
+				var appUrl = new URL(window.location.href);
 				window.open(appUrl, "_self");
 			}
 
@@ -54,7 +53,8 @@
 				window.location.href = "intent://loadticket/?smartPassCode=BARCODEFAKE#Intent;scheme=https;package=com.dolomitisuperski.skiapp;end;";
 			}
 			function openApp3() {
-				var appUrl = "https://smartpass.dolomitisuperski.com/loadticket/?ee=CBARCODEFAKE";
+				// var appUrl = "https://smartpass.dolomitisuperski.com/loadticket/?ee=CBARCODEFAKE";
+				var appUrl = new URL(window.location.href);
     			window.location.replace(appUrl);
 			}
 
